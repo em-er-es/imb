@@ -43,7 +43,6 @@ int FileOperations::save(std::string filename) {
 //! OpenCV version check
 int FileOperations::openCVVersionCheck(void) {
 	printf("FileOperations: OpenCV version check: %s\n", CV_VERSION);
-	//	std::cout << "FileOperations:\n\tOpenCV version: " << CV_VERSION << "\n\tMajor version: " << CV_MAJOR_VERSION << "\n\tMinor version: " << CV_MINOR_VERSION << "\n\tSubminor version: " << CV_SUBMINOR_VERSION << std::endl;
 
 	return CV_MAJOR_VERSION;
 };

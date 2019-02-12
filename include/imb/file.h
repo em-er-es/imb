@@ -48,4 +48,4 @@ class FileOperations {
 
 } // namespace imb
 
-#endif // IMB_FILE
+#endif // IMB_FILE_H

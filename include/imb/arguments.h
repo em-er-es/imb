@@ -16,17 +16,12 @@
 #ifndef IMB_ARGUMENTS_H
 #define IMB_ARGUMENTS_H
 
-//#define _POSIX_C_SOURCE 2 // GNU's getopt feature option switch #D#
-
 #include <ctype.h>
-#include <getopt.h> // getopt_long
+#include <getopt.h>
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string>
-/*
-#include <unistd.h> // getopt
-*/
 
 namespace imb {
 
@@ -57,7 +52,6 @@ class ArgumentParser {
 		bool switch_luminance_mixing = false;
 		bool switch_luminance_3_levels = true;
 		bool switch_luminance_7_levels = false;
-		//		char *name_input;
 		std::string name_input;
 		std::string name_output;
 	} flow_control_;

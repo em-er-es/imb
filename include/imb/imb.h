@@ -16,8 +16,6 @@
 #ifndef IMB_MAIN_H
 #define IMB_MAIN_H
 
-//#define _POSIX_C_SOURCE 2 // GNU's getopt feature option switch #D#
-
 #include "imb/arguments.h"
 #include "imb/file.h"
 /*

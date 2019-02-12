@@ -56,7 +56,6 @@ int ArgumentParser::argumentsParsing(int arguments_count, char **arguments_vecto
 	opterr = 0;
 
 	// Parse arguments
-	//	while ((argument = getopt(arguments_count, arguments_vector, "abhi:o:")) != -1) { // #D# Short command line options
 	while ((argument = getopt_long(arguments_count, arguments_vector, arguments_parser_short_options, arguments_parser_long_options, &index)) != -1) {
 #if DEBUG > 0
 		printf("ArgumentParser: Switch: %c\n", argument);
@@ -114,7 +113,6 @@ int ArgumentParser::argumentsParsing(int arguments_count, char **arguments_vecto
 #if DEBUG > 0
 				fprintf(stderr, "%s: invalid option -- %c : %c : %s\n", arguments_vector[0], argument, optopt, optarg);
 #endif
-				//				fprintf(stderr, "Use `%s -h' for more information.\n", arguments_vector[0]);
 				fprintf(stderr, "Use `%s -h or --help' for more information.\n", arguments_vector[0]);
 				exit(EXIT_FAILURE);
 			default:
