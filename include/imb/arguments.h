@@ -50,6 +50,7 @@ class ArgumentParser {
 	 */
 	struct FlowControl {
 		bool verbose_flag = false;
+		int switch_display = 0;
 		bool switch_scan_lines = false;
 		bool switch_luminance_mixing = false;
 		bool switch_luminance_3_levels = true;

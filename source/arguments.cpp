@@ -22,7 +22,7 @@ namespace imb {
 //! @todo Fix the arguments_parser_long_options initialization routine in class constructor, possibly via initialization lists [F001]
 ArgumentParser::ArgumentParser(void) {
 	//! Short options
-	arguments_parser_short_options = "abchi:o:v";
+	arguments_parser_short_options = "abcdDhi:o:v";
 }
 
 //! Class destructor
@@ -39,6 +39,8 @@ int ArgumentParser::argumentsParsing(int arguments_count, char **arguments_vecto
 	//! @todo Fix the arguments_parser_long_options initialization routine in class constructor, possibly via initialization lists [F001]
 	const struct option arguments_parser_long_options[] = {
 		{"brief", no_argument, NULL, 0},
+		{"display", no_argument, &flow_control_.switch_display, 1},
+		{"no-display", no_argument, &flow_control_.switch_display, 0},
 		{"help", no_argument, NULL, 'h'},
 		{"input", required_argument, NULL, 'i'},
 		{"output", required_argument, NULL, 'o'},
@@ -79,6 +81,12 @@ int ArgumentParser::argumentsParsing(int arguments_count, char **arguments_vecto
 				break;
 			case 'c':
 				flow_control_.switch_luminance_mixing = true;
+				break;
+			case 'd':
+				flow_control_.switch_display = 1;
+				break;
+			case 'D':
+				flow_control_.switch_display = 0;
 				break;
 			case 'h':
 				printf("Usage: %s -i input -o output\n\t-a\tSwitch a\n\t-b\tSwitch b\n", arguments_vector[0]);
