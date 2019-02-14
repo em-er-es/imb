@@ -45,6 +45,7 @@ int FileOperations::save(std::string filename) {
 #if DEBUG > 0
 	printf("FileOperations: Save: Filename %s\n", filename.c_str());
 #endif
+	return cv::imwrite(filename, output_matrix);
 }
 
 #if DEBUG > 0
