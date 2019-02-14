@@ -32,6 +32,7 @@ class ArgumentParser {
   private:
 	//! Arguments parser short options
 	const char *arguments_parser_short_options;
+
 	//! Arguments parser long options
 	//! @todo Fix the arguments_parser_long_options routine [F001]
 	//const struct option *arguments_parser_long_options;
@@ -39,6 +40,7 @@ class ArgumentParser {
   public:
 	//! Class constructor
 	ArgumentParser(void);
+
 	//! Class destructor
 	~ArgumentParser(void);
 

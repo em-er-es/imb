@@ -27,18 +27,30 @@ namespace imb {
  */
 class FileOperations {
   public:
+	//! Class constructor
+	FileOperations(void);
+
+	//! Class destructor
+	~FileOperations(void);
+
 	//! Image file load procedure
 	int load(std::string filename);
+
 	//! Image file save procedure
 	int save(std::string filename);
+
 	//! Input image matrix
 	cv::Mat input_matrix;
+
 	//! Output image matrix
 	cv::Mat output_matrix;
+
 	//! Input image filename
 	std::string input;
+
 	//! Output image filename
 	std::string output;
+
 #if DEBUG > 0
 	//! OpenCV version check
 	int openCVVersionCheck(void);

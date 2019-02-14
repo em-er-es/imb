@@ -17,6 +17,14 @@
 
 namespace imb {
 
+//! Class constructor
+FileOperations::FileOperations(void) {
+}
+
+//! Class destructor
+FileOperations::~FileOperations(void) {
+}
+
 //! Image file load procedure
 int FileOperations::load(std::string filename) {
 #if DEBUG > 0
