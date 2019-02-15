@@ -57,4 +57,8 @@ int main(int arguments_count, char **arguments_vector) {
 	printf("Main: Processor block filter name = %s\n", processor_block.filter_name.c_str());
 	processor_block.filter_name = "C64 filter";
 	printf("Main: Processor block filter name = %s\n", processor_block.filter_name.c_str());
+	processor_block.filter_function = imb::filter_c64;
+	processor_block.filter_function(&file_operations.input_matrix, &file_operations.output_matrix);
+
+	file_operations.save(argument_parser.flow_control_.name_output);
 }
