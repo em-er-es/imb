@@ -50,6 +50,8 @@ class ProcessorBlock {
 
 }; // class ProcessorBlock
 
+int filter_c64(cv::Mat *input, cv::Mat *output);
+
 } // namespace imb
 
 #endif // IMB_PROCESSOR_H
