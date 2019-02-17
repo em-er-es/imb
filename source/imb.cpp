@@ -48,7 +48,25 @@ int main(int arguments_count, char **arguments_vector) {
 	file_operations.load(argument_parser.flow_control_.name_input);
 	namedWindow("OpenCV - Input", CV_WINDOW_AUTOSIZE);
 	// Display input image
-	imshow("OpenCV - ImageInput", file_operations.input_matrix);
-	waitKey(0);
-	destroyWindow("OpenCV - Input");
+	if (argument_parser.flow_control_.switch_display) {
+		imshow("OpenCV - ImageInput", file_operations.input_matrix);
+		waitKey(0);
+		destroyWindow("OpenCV - Input");
+	}
+
+	// Create a processor block
+	imb::ProcessorBlock processor_block;
+	printf("Main: Processor block filter name = %s\n", processor_block.filter_name.c_str());
+	processor_block.filter_name = "C64 filter";
+	printf("Main: Processor block filter name = %s\n", processor_block.filter_name.c_str());
+	processor_block.filter_function = imb::filter_c64;
+	processor_block.filter_function(&file_operations.input_matrix, &file_operations.output_matrix);
+
+	// Display output image
+	if (argument_parser.flow_control_.switch_display) {
+		imshow("OpenCV - ImageOutput", file_operations.output_matrix);
+		waitKey(0);
+		destroyWindow("OpenCV - Output");
+	}
+	file_operations.save(argument_parser.flow_control_.name_output);
 }

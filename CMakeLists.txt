@@ -37,6 +37,7 @@ set(SOURCE_CODE
 	source/imb.cpp
 	source/arguments.cpp
 	source/file.cpp
+	source/processor.cpp
 )
 
 message("OpenCV configuration: ")
