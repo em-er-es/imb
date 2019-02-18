@@ -19,6 +19,7 @@
 #include "imb/arguments.h"
 #include "imb/file.h"
 #include "imb/processor.h"
+#include "imb/display.h"
 /*
 */
 
