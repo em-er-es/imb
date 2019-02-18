@@ -36,7 +36,9 @@ int ProcessorBlock::filter(cv::Mat *input, cv::Mat *output) {
 
 int filter_c64(cv::Mat *input, cv::Mat *output) {
 	printf("ProcessorBlock: Filter: %s\n", "C64");
+//	cv::Mat *operation;
 	cv::cvtColor(*input, *output, COLOR_BGR2GRAY);
+	cv::cvtColor(*output, *output, COLOR_GRAY2BGR);
 }
 
 } // namespace imb
