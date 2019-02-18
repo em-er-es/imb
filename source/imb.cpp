@@ -46,13 +46,6 @@ int main(int arguments_count, char **arguments_vector) {
 
 	// Load file
 	file_operations.load(argument_parser.flow_control_.name_input);
-	namedWindow("OpenCV - Input", CV_WINDOW_AUTOSIZE);
-	// Display input image
-	if (argument_parser.flow_control_.switch_display) {
-		imshow("OpenCV - ImageInput", file_operations.input_matrix);
-		waitKey(0);
-		destroyWindow("OpenCV - Input");
-	}
 
 	// Create a processor block
 	imb::ProcessorBlock processor_block;
@@ -64,9 +57,8 @@ int main(int arguments_count, char **arguments_vector) {
 
 	// Display output image
 	if (argument_parser.flow_control_.switch_display) {
-		imshow("OpenCV - ImageOutput", file_operations.output_matrix);
-		waitKey(0);
-		destroyWindow("OpenCV - Output");
+		imb::Display display;
+		display.display_comparison(&file_operations.input_matrix, &file_operations.output_matrix);
 	}
 	file_operations.save(argument_parser.flow_control_.name_output);
 }
