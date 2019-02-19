@@ -17,6 +17,7 @@
 #define IMB_MAIN_H
 
 #include "imb/arguments.h"
+#include "imb/common.h"
 #include "imb/file.h"
 #include "imb/processor.h"
 #include "imb/display.h"

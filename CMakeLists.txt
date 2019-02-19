@@ -46,6 +46,7 @@ set(OUTPUT imb)
 set(SOURCE_CODE
 	source/imb.cpp
 	source/arguments.cpp
+	source/common.cpp
 	source/display.cpp
 	source/file.cpp
 	source/processor.cpp
