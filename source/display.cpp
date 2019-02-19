@@ -22,6 +22,8 @@ namespace imb {
 Display::Display(void) {
 	// Set default display window name
 	display_window_name = "IMB";
+	// Set default display mode
+	mode = 1;
 }
 
 //! Class destructor
@@ -70,7 +72,12 @@ int Display::display_comparison(cv::Mat *image_a, cv::Mat *image_b) {
 #endif
 
 	// Create window with flags
-	namedWindow(display_window_name, WINDOW_AUTOSIZE & WINDOW_OPENGL & WINDOW_GUI_EXPANDED);
+	if (mode == 0) {
+		namedWindow(display_window_name, WINDOW_AUTOSIZE & WINDOW_OPENGL & WINDOW_GUI_EXPANDED);
+	} else if (mode == 1) {
+		namedWindow(display_window_name, WINDOW_NORMAL & WINDOW_OPENGL & WINDOW_GUI_EXPANDED);
+		resizeWindow(display_window_name, 1024, 720);
+	}
 
 	// Handle key input
 	//while((cv::waitKey() & 0xEFFFFF) != 27);
