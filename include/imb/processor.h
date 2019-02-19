@@ -34,7 +34,7 @@ class ProcessorBlock {
 	~ProcessorBlock(void);
 
 	//! Filter function pointer
-	int (*filter_function)(cv::Mat*, cv::Mat*);
+	int (*filter_function)(cv::Mat *, cv::Mat *);
 
 	//! Filter function
 	int filter(cv::Mat *input, cv::Mat *output);

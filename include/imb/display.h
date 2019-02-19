@@ -33,7 +33,7 @@ class Display {
 	~Display(void);
 
 	//! Filter function pointer
-	int (*filter_function)(cv::Mat*, cv::Mat*);
+	int (*filter_function)(cv::Mat *, cv::Mat *);
 
 	//! Display function
 	int display_comparison(cv::Mat *image_a, cv::Mat *image_b);
