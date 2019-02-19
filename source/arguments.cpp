@@ -23,6 +23,10 @@ namespace imb {
 ArgumentParser::ArgumentParser(void) {
 	//! Short options
 	arguments_parser_short_options = "abcdDhi:o:v";
+
+	// Set defaults
+	flow_control_.name_input = "input.png";
+	flow_control_.name_output = "output.png";
 }
 
 //! Class destructor
