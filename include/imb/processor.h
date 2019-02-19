@@ -45,11 +45,12 @@ class ProcessorBlock {
 	//! Processor block name
 	std::string processor_block_name;
 
-	//! Input image pointer
-	cv::Mat *processed_image;
-
 }; // class ProcessorBlock
 
+/*!
+ * @brief Commodore 64 palette filter
+ * @reference https://www.pepto.de/projects/colorvic/2001/
+ */
 int filter_c64(cv::Mat *input, cv::Mat *output);
 
 } // namespace imb
