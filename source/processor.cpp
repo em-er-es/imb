@@ -30,11 +30,11 @@ ProcessorBlock::~ProcessorBlock(void) {
 //! Image file load procedure
 int ProcessorBlock::filter(cv::Mat *input, cv::Mat *output) {
 #if DEBUG > 0
-	printf("ProcessorBlock: Filter: %s\n", this->filter_name.c_str());
+	printf("ProcessorBlock: Filter: %s\n", filter_name.c_str());
 #endif
 }
 
-int filter_c64(cv::Mat *input, cv::Mat *output) {
+int filter_c64(cv::Mat *input, cv::Mat *output) { //@todo Rename to filterPaletteC64
 	printf("ProcessorBlock: Filter: %s\n", "C64");
 	//cv::Mat *operation;
 	cv::cvtColor(*input, *output, COLOR_BGR2GRAY);
