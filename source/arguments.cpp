@@ -22,7 +22,7 @@ namespace imb {
 //! @todo Fix the arguments_parser_long_options initialization routine in class constructor, possibly via initialization lists [F001]
 ArgumentParser::ArgumentParser(void) {
 	//! Short options
-	arguments_parser_short_options = "abcdDhi:o:v";
+	arguments_parser_short_options = "abcCdDhi:mo:rv";
 
 	// Set defaults
 	flow_control_.name_input = "input.png";
@@ -86,6 +86,9 @@ int ArgumentParser::argumentsParsing(int arguments_count, char **arguments_vecto
 			case 'c':
 				flow_control_.switch_luminance_mixing = true;
 				break;
+			case 'C':
+				flow_control_.switch_continuous_image_check = true;
+				break;
 			case 'd':
 				flow_control_.switch_display = 1;
 				break;
@@ -103,6 +106,9 @@ int ArgumentParser::argumentsParsing(int arguments_count, char **arguments_vecto
 					fprintf(stderr, "Option -%c requires an alphanumerical argument.\n", argument);
 					exit(EXIT_FAILURE);
 				}
+			case 'm':
+				flow_control_.vic_ii_model = false;
+				break;
 			case 'o':
 				if (isprint(argument)) {
 					flow_control_.name_output = std::string(optarg);
@@ -111,6 +117,12 @@ int ArgumentParser::argumentsParsing(int arguments_count, char **arguments_vecto
 					fprintf(stderr, "Option -%c requires an alphanumerical argument.\n", argument);
 					exit(EXIT_FAILURE);
 				}
+			case 'r':
+				flow_control_.switch_compare_rgb = true;
+				break;
+			case 'v':
+				flow_control_.verbose_flag = true;
+				break;
 			case ':':
 			case '?':
 				if ((optopt == 'i') or (optopt == 'o')) {
