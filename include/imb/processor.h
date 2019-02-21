@@ -37,9 +37,6 @@ class ProcessorBlock {
 	//! Filter function pointer
 	int (*filter_function)(cv::Mat *, cv::Mat *);
 
-	//! Filter function
-	int filter(cv::Mat *input, cv::Mat *output);
-
 	//! Processor block name
 	std::string processor_block_name;
 
