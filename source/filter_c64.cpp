@@ -60,45 +60,45 @@ int filterPaletteC64(cv::Mat *input, cv::Mat *output) { //@todo Rename to filter
 	// No angle colors: black: 0, white: 32; dark grey: 10; grey: 15; light grey: 20;
 	// peak = 34,0081334493; u = peak * cos(angle); v = peak * sin(angle);
 
-	// LUT 8 bit YUV
-	uchar lut8yuv[16][3] = {
-		{0, 0, 0},
-		{255, 0, 0},
-		{80, 0, 0},
-		{159, 0, 11},
-		{96, 18, 29},
-		{128, 0, 32},
-		{64, 34, 0},
-		{191, 21, 0},
-		{96, 34, 3},
-		{64, 0, 14},
-		{128, 0, 0},
-		{80, 0, 0},
-		{120, 0, 0},
-		{191, 0, 32},
-		{120, 34, 0},
-		{159, 0, 0},
-	};
+// LUT 8 bit YUV
+uchar lut8yuv[16][3] = {
+	{0, 0, 0}, // black
+	{255, 0, 0}, // white
+	{80, 0, 0}, // red
+	{159, 0, 11}, // cyan
+	{96, 18, 29}, // purple
+	{128, 0, 32}, // green
+	{64, 34, 0}, // blue
+	{191, 21, 0}, // yellow
+	{96, 34, 3}, // orange
+	{64, 0, 14}, // brown
+	{128, 0, 0}, // light red
+	{80, 0, 0}, // dark grey
+	{120, 0, 0}, // grey
+	{191, 0, 32}, // light green
+	{120, 34, 0}, // light blue
+	{159, 0, 0}, // light grey
+};
 
-	// LUT 8 bit RGB
-	uchar lut8rgb[16][3] = {
-		{0, 0, 0},
-		{255, 255, 255},
-		{58, 102, 22},
-		{172, 166, 93},
-		{129, 72, 132},
-		{164, 114, 102},
-		{64, 50, 134},
-		{191, 183, 233},
-		{99, 80, 165},
-		{80, 68, 0},
-		{105, 150, 70},
-		{80, 80, 80},
-		{120, 120, 120},
-		{228, 178, 166},
-		{120, 106, 189},
-		{159, 159, 159},
-	};
+// LUT 8 bit RGB
+uchar lut8rgb[16][3] = {
+	{0, 0, 0}, // black
+	{255, 255, 255}, // white
+	{58, 102, 22}, // red
+	{172, 166, 93}, // cyan
+	{129, 72, 132}, // purple
+	{164, 114, 102}, // green
+	{64, 50, 134}, // blue
+	{191, 183, 233}, // yellow
+	{99, 80, 165}, // orange
+	{80, 68, 0}, // brown
+	{105, 150, 70}, // light red
+	{80, 80, 80}, // dark grey
+	{120, 120, 120}, // grey
+	{228, 178, 166}, // light green
+	{120, 106, 189}, // light blue
+	{159, 159, 159}, // light grey
+};
 
 	// Prepare iteration
 	int nChannels = processed_image.channels();
