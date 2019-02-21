@@ -22,8 +22,8 @@ namespace imb {
 
 //! Class constructor
 ProcessorBlock::ProcessorBlock(void) {
-	// Set default filter name
-	filter_name = "Processor block";
+	// Set default processor block name
+	processor_block_name = "Processor block";
 }
 
 //! Class destructor

@@ -39,19 +39,10 @@ class ProcessorBlock {
 	//! Filter function
 	int filter(cv::Mat *input, cv::Mat *output);
 
-	//! Filter name
-	std::string filter_name;
-
 	//! Processor block name
 	std::string processor_block_name;
 
 }; // class ProcessorBlock
-
-/*!
- * @brief Commodore 64 palette filter
- * @reference https://www.pepto.de/projects/colorvic/2001/
- */
-int filter_c64(cv::Mat *input, cv::Mat *output);
 
 } // namespace imb
 

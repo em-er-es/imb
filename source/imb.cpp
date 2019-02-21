@@ -51,9 +51,9 @@ int main(int arguments_count, char **arguments_vector) {
 	// Create a processor block
 	//!@todo Implement filter function pointer procedure [D004]
 	imb::ProcessorBlock processor_block;
-	printf("Main: Processor block filter name = %s\n", processor_block.filter_name.c_str());
-	processor_block.filter_name = "C64 filter";
-	printf("Main: Processor block filter name = %s\n", processor_block.filter_name.c_str());
+	printf("Main: Processor block filter name = %s\n", processor_block.processor_block_name.c_str());
+	processor_block.processor_block_name = "Commodore 64 processor block";
+	printf("Main: Processor block filter name = %s\n", processor_block.processor_block_name.c_str());
 	processor_block.filter_function = imb::filter_c64;
 	processor_block.filter_function(&file_operations.input_matrix, &file_operations.output_matrix);
 
