@@ -37,6 +37,7 @@ int FileOperations::load(std::string filename) {
 		fprintf(stderr, "Input file %s could not be loaded\n", filename.c_str());
 		exit(EXIT_FAILURE);
 	}
+	return 0;
 }
 
 //! Image file save procedure
