@@ -3,10 +3,12 @@ cmake_minimum_required(VERSION 2.8.3)
 PROJECT(imb) # BASE
 
 # Information
-# message("C++ compiler supported C++ features:")
-# foreach(i ${CMAKE_CXX_COMPILE_FEATURES})
-# 	message("-*- ${i}")
-# endforeach()
+if(VERBOSE)
+message("C++ compiler supported C++ features:")
+foreach(i ${CMAKE_CXX_COMPILE_FEATURES})
+	message("-*- ${i}")
+endforeach()
+endif()
 
 # @reference https://stackoverflow.com/questions/10851247/how-to-activate-c-11-in-cmake#31010221
 include(CheckCXXCompilerFlag)
