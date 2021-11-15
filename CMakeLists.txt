@@ -26,7 +26,19 @@ else()
 	message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
 endif()
 
-# Debug
+# Profile
+if(PROFILE)
+	message(STATUS "Configuring for profiling build")
+	add_compile_options(-pg)
+	#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pg")
+	#set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -pg")
+	#set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pg")
+	#set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -pg")
+	if(NOT DEBUG)
+		set(DEBUG 1)
+	endif()
+endif()
+
 if(DEBUG)
 	message(STATUS "Configuring for debug build")
 	add_compile_options(-DDEBUG=${DEBUG})
