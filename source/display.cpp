@@ -98,6 +98,7 @@ int Display::display_comparison(cv::Mat *image_a, cv::Mat *image_b) {
 	// Close all windows
 	//destroyWindow(); //#D#
 	destroyAllWindows();
+	return 0;
 }
 
 } // namespace imb
