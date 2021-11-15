@@ -4,10 +4,10 @@ PROJECT(imb) # BASE
 
 # Information
 if(VERBOSE)
-message("C++ compiler supported C++ features:")
-foreach(i ${CMAKE_CXX_COMPILE_FEATURES})
-	message("-*- ${i}")
-endforeach()
+	message("C++ compiler supported C++ features:")
+	foreach(i ${CMAKE_CXX_COMPILE_FEATURES})
+		message("-*- ${i}")
+	endforeach()
 endif()
 
 # @reference https://stackoverflow.com/questions/10851247/how-to-activate-c-11-in-cmake#31010221
@@ -63,7 +63,9 @@ set(SOURCE_CODE
 
 message("OpenCV configuration: ")
 message("-*- version: " ${OpenCV_VERSION})
-# message("-*- compute capabilities: " ${OpenCV_COMPUTE_CAPABILITIES})
+if(VERBOSE)
+	message("-*- compute capabilities: " ${OpenCV_COMPUTE_CAPABILITIES})
+endif()
 message("-*- location: " ${OpenCV_INSTALL_PATH})
 message("-*- include directories: " ${OpenCV_INCLUDE_DIRS})
 message("-*- cmake configuration directory: " ${OpenCV_DIR})
