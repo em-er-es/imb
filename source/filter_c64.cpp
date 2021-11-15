@@ -129,10 +129,11 @@ uchar lut8rgb[16][3] = {
 			for (j = 0; j < 16; ++j) { // LUT
 				if (switch_compare_rgb) {
 					error = int(sqrt(float(((lut8rgb[j][0] - point[l]) * (lut8rgb[j][0] - point[l])) + ((lut8rgb[j][1] - point[l + 1]) * (lut8rgb[j][1] - point[l + 1])) + ((lut8rgb[j][2] - point[l + 2]) * (lut8rgb[j][2] - point[l + 2])))));
-					if (point[l] == 0)
+					if (point[l] == 0) {
 #if DEBUG > 0
 						printf("ProcessorBlock: Pixel RGB: %d, %d, %d; error %d, minimal: %d; lut8rgb: %d,%d,%d; lutindex: %d\n", point[l], point[l + 1], point[l + 2], error, error_min, lut8rgb[j][0], lut8rgb[j][1], lut8rgb[j][2], lutindex);
 #endif
+					};
 				} else {
 					error = int(sqrt(float(((lut8yuv[j][0] - point[l]) * (lut8yuv[j][0] - point[l])) + ((lut8yuv[j][1] - point[l + 1]) * (lut8yuv[j][1] - point[l + 1])) + ((lut8yuv[j][2] - point[l + 2]) * (lut8yuv[j][2] - point[l + 2])))));
 #if DEBUG > 0
