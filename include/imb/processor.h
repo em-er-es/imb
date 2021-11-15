@@ -18,6 +18,7 @@
 
 #include "opencv2/opencv.hpp"
 #include "opencv2/imgproc.hpp"
+#include "imb/filter_c64.h"
 
 using namespace cv;
 namespace imb {

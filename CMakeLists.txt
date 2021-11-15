@@ -60,6 +60,7 @@ set(SOURCE_CODE
 	source/display.cpp
 	source/file.cpp
 	source/processor.cpp
+	source/filter_c64.cpp
 )
 
 message("OpenCV configuration: ")
