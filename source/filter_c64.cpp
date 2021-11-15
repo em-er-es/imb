@@ -178,6 +178,7 @@ uchar lut8rgb[16][3] = {
 		// Copy processed image
 		processed_image.copyTo(*output);
 	}
+	return 0;
 }
 
 } // namespace Filter
