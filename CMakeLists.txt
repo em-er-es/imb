@@ -1,6 +1,6 @@
 # Image Processing Blocks
 cmake_minimum_required(VERSION 2.8.3)
-PROJECT(imb)
+PROJECT(imb) # BASE
 
 # Information
 # message("C++ compiler supported C++ features:")
