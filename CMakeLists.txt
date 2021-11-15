@@ -39,6 +39,7 @@ if(PROFILE)
 	endif()
 endif()
 
+# Debug
 if(DEBUG)
 	message(STATUS "Configuring for debug build")
 	add_compile_options(-DDEBUG=${DEBUG})
