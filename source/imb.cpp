@@ -30,9 +30,9 @@ int main(int arguments_count, char **arguments_vector) {
 	printf("Main: Set arguments: %d, %d, %s, %s\n", argument_parser.flow_control_.switch_scan_lines, argument_parser.flow_control_.switch_luminance_3_levels, argument_parser.flow_control_.name_input.c_str(), argument_parser.flow_control_.name_output.c_str());
 #endif
 
-// OpenCV version check
-#if DEBUG > 0
+	// OpenCV version check
 	imb::FileOperations file_operations;
+#if DEBUG > 0
 	int opencv_version = file_operations.openCVVersionCheck();
 	printf("Main: Check OpenCV version = %d\n", opencv_version);
 #endif
