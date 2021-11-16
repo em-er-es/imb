@@ -34,13 +34,13 @@ int filterPaletteC64(cv::Mat *input, cv::Mat *output) { //@todo Rename to filter
 		// Convert into YUV color space
 		cv::cvtColor(*input, processed_image, COLOR_BGR2YUV);
 #if DEBUG > 0
-		printf("ProcessorBlock: Input: %s, converted to YUV: %s\n", type2str(input->type()).c_str(), type2str(processed_image.type()).c_str());
+		printf("Filter: Input: %s, converted to YUV: %s\n", type2str(input->type()).c_str(), type2str(processed_image.type()).c_str());
 #endif
 	} else {
 		// Copy processed image
 		input->copyTo(processed_image);
 #if DEBUG > 0
-		printf("ProcessorBlock: Input: %s, copied\n", type2str(input->type()).c_str());
+		printf("Filter: Input: %s, copied\n", type2str(input->type()).c_str());
 #endif
 	}
 
@@ -55,7 +55,7 @@ int filterPaletteC64(cv::Mat *input, cv::Mat *output) { //@todo Rename to filter
 	}
 	*/
 	// VIC chrominance output levels
-	// Angle cqlculqtions:
+	// Angle calculations:
 	// 360° / 16 * n
 	// red: 5; cyan: 5i; purple: 2; green: 2i; blue: 0; yellow: 0i; orange: 6; brown:7; light red: 5; light green: 2i; light blue: 0;
 	// No angle colors: black: 0, white: 32; dark grey: 10; grey: 15; light grey: 20;
@@ -113,7 +113,7 @@ uchar lut8rgb[16][3] = {
 
 	if (switch_continuous_image_check && processed_image.isContinuous()) {
 #if DEBUG > 0
-		printf("ProcessorBlock: Continuous image detected\n");
+		printf("Filter: Continuous image detected\n");
 #endif
 		nCols *= nRows;
 		nRows = 1;
@@ -132,13 +132,13 @@ uchar lut8rgb[16][3] = {
 					error = int(sqrt(float(((lut8rgb[j][0] - point[l]) * (lut8rgb[j][0] - point[l])) + ((lut8rgb[j][1] - point[l + 1]) * (lut8rgb[j][1] - point[l + 1])) + ((lut8rgb[j][2] - point[l + 2]) * (lut8rgb[j][2] - point[l + 2])))));
 					if (point[l] == 0) {
 #if DEBUG > 0
-						printf("ProcessorBlock: Pixel RGB: %d, %d, %d; error %d, minimal: %d; lut8rgb: %d,%d,%d; lutindex: %d\n", point[l], point[l + 1], point[l + 2], error, error_min, lut8rgb[j][0], lut8rgb[j][1], lut8rgb[j][2], lutindex);
+						printf("Filter: Pixel RGB: %d, %d, %d; error %d, minimal: %d; lut8rgb: %d,%d,%d; lutindex: %d\n", point[l], point[l + 1], point[l + 2], error, error_min, lut8rgb[j][0], lut8rgb[j][1], lut8rgb[j][2], lutindex);
 #endif
 					};
 				} else {
 					error = int(sqrt(float(((lut8yuv[j][0] - point[l]) * (lut8yuv[j][0] - point[l])) + ((lut8yuv[j][1] - point[l + 1]) * (lut8yuv[j][1] - point[l + 1])) + ((lut8yuv[j][2] - point[l + 2]) * (lut8yuv[j][2] - point[l + 2])))));
 #if DEBUG > 0
-					printf("ProcessorBlock: Pixel RGB: %d, %d, %d; error %d, minimal: %d; lut8rgb: %d,%d,%d; lutindex: %d\n", point[l], point[l + 1], point[l + 2], error, error_min, lut8yuv[j][0], lut8yuv[j][1], lut8yuv[j][2], lutindex);
+					printf("Filter: Pixel RGB: %d, %d, %d; error %d, minimal: %d; lut8rgb: %d,%d,%d; lutindex: %d\n", point[l], point[l + 1], point[l + 2], error, error_min, lut8yuv[j][0], lut8yuv[j][1], lut8yuv[j][2], lutindex);
 #endif
 				}
 
@@ -151,12 +151,12 @@ uchar lut8rgb[16][3] = {
 			} // LUT
 #if DEBUG > 0
 			if (error_min == INT_MAX) {
-				printf("ProcessorBlock: No assignment: l: %d, error: %d, minimal: %d\n", l, error, error_min);
+				printf("Filter: No assignment: l: %d, error: %d, minimal: %d\n", l, error, error_min);
 			}
 			if (l % 1000 == 0) {
-				printf("ProcessorBlock: Error: l: %d, minimal: %d, l: %d, lutindex: %d\n", l, error, error_min, lutindex);
-				printf("ProcessorBlock: Loop: l: %d, i: %d, j: %d, lutindex: %d\n", l, i, j, lutindex);
-				printf("ProcessorBlock: Assignment: l: %d, assign index %d: %d, %d, %d\n", l, lutindex, lut8rgb[lutindex][0], lut8rgb[lutindex][1], lut8rgb[lutindex][2]);
+				printf("Filter: Error: l: %d, minimal: %d, l: %d, lutindex: %d\n", l, error, error_min, lutindex);
+				printf("Filter: Loop: l: %d, i: %d, j: %d, lutindex: %d\n", l, i, j, lutindex);
+				printf("Filter: Assignment: l: %d, assign index %d: %d, %d, %d\n", l, lutindex, lut8rgb[lutindex][0], lut8rgb[lutindex][1], lut8rgb[lutindex][2]);
 			}
 #endif
 			// Process image
@@ -180,7 +180,7 @@ uchar lut8rgb[16][3] = {
 		processed_image.copyTo(*output);
 	}
 	return 0;
-}
+} // function filterPaletteC64
 
 } // namespace Filter
 
