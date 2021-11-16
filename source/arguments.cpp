@@ -22,7 +22,7 @@ namespace imb {
 //! @todo Fix the arguments_parser_long_options initialization routine in class constructor, possibly via initialization lists [F001]
 ArgumentParser::ArgumentParser(void) {
 	//! Short options
-	arguments_parser_short_options = "abcCdDhi:mo:rv";
+	arguments_parser_short_options = "abcCdDhi:mo:rRv";
 
 	// Set defaults
 	flow_control_.name_input = "input.png";
@@ -115,6 +115,9 @@ int ArgumentParser::argumentsParsing(int arguments_count, char **arguments_vecto
 				}
 			case 'r':
 				flow_control_.switch_compare_rgb = true;
+				break;
+			case 'R':
+				flow_control_.switch_compare_rgb = false;
 				break;
 			case 'v':
 				flow_control_.verbose_flag = true;
