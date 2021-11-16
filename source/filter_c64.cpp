@@ -22,11 +22,12 @@ namespace imb {
 //! Filter definitions
 namespace Filter {
 
+bool switch_compare_rgb; // = true;
+bool switch_continuous_image_check; // = false;
+bool switch_vic_ii_late_model; // = true;
+
 int filterPaletteC64(cv::Mat *input, cv::Mat *output) { //@todo Rename to filterPaletteC64
-	printf("ProcessorBlock: Filter: %s\n", "C64");
-	bool vic_ii_model = true;
-	bool switch_compare_rgb = true;
-	bool switch_continuous_image_check = false;
+	printf("Filter: %s\n", "C64");
 	cv::Mat processed_image;
 	// Switch between YUV and RGB comparison
 	if (switch_compare_rgb) {
