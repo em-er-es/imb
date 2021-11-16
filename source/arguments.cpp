@@ -79,12 +79,8 @@ int ArgumentParser::argumentsParsing(int arguments_count, char **arguments_vecto
 #endif
 				flow_control_.switch_scan_lines = true;
 				break;
-			case 'b':
-				flow_control_.switch_luminance_3_levels = false;
-				flow_control_.switch_luminance_7_levels = true;
-				break;
 			case 'c':
-				flow_control_.switch_luminance_mixing = true;
+				flow_control_.switch_color_mixing = true;
 				break;
 			case 'C':
 				flow_control_.switch_continuous_image_check = true;
@@ -107,7 +103,7 @@ int ArgumentParser::argumentsParsing(int arguments_count, char **arguments_vecto
 					exit(EXIT_FAILURE);
 				}
 			case 'm':
-				flow_control_.vic_ii_model = false;
+				flow_control_.switch_vic_ii_late_model = false;
 				break;
 			case 'o':
 				if (isprint(argument)) {
@@ -145,7 +141,7 @@ int ArgumentParser::argumentsParsing(int arguments_count, char **arguments_vecto
 	}
 
 #if DEBUG > 0
-	printf("ArgumentParser: Flags: a = %d, b = %d, c = %d, input: %s, output: %s\n", flow_control_.switch_scan_lines, flow_control_.switch_luminance_7_levels, flow_control_.switch_luminance_mixing, flow_control_.name_input.c_str(), flow_control_.name_output.c_str());
+	printf("ArgumentParser: Flags: a = %d, m = %d, c = %d, input: %s, output: %s\n", flow_control_.switch_scan_lines, flow_control_.switch_vic_ii_late_model, flow_control_.switch_color_mixing, flow_control_.name_input.c_str(), flow_control_.name_output.c_str());
 #endif
 
 	for (index = optind; index < arguments_count; index++)

@@ -51,12 +51,10 @@ class ArgumentParser {
 	struct FlowControl {
 		bool switch_compare_rgb = true;
 		bool switch_continuous_image_check = false;
-		bool switch_luminance_mixing = false;
-		bool switch_luminance_3_levels = true;
-		bool switch_luminance_7_levels = false;
+		bool switch_color_mixing = false;
 		bool switch_scan_lines = false;
+		bool switch_vic_ii_late_model = true;
 		bool verbose_flag = false;
-		bool vic_ii_model = true;
 		int switch_display = 0;
 		std::string name_input;
 		std::string name_output;
