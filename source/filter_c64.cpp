@@ -44,16 +44,6 @@ int filterPaletteC64(cv::Mat *input, cv::Mat *output) { //@todo Rename to filter
 #endif
 	}
 
-	/*
-	// VIC luma output levels
-	if (vic_ii_model) {
-		//std::vector<int> vic_luma {0, 8, 10, 12, 15, 16, 20, 24, 32}; // Multiply by 255 / 32 = 7,96875 ~ 8
-		std::vector<int> vic_luma{0, 64, 80, 96, 120, 128, 159, 191, 255};
-	} else {
-		//std::vector<int> vic_luma {0, 8, 16, 24, 32};
-		std::vector<int> vic_luma{0, 64, 128, 192, 255};
-	}
-	*/
 	// VIC chrominance output levels
 	// Angle calculations:
 	// 360° / 16 * n
