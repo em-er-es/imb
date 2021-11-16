@@ -22,7 +22,7 @@ namespace imb {
 //! @todo Fix the arguments_parser_long_options initialization routine in class constructor, possibly via initialization lists [F001]
 ArgumentParser::ArgumentParser(void) {
 	//! Short options
-	arguments_parser_short_options = "abcdDhi:o:v";
+	arguments_parser_short_options = "abcCdDhi:mo:rRv";
 
 	// Set defaults
 	flow_control_.name_input = "input.png";
@@ -79,12 +79,11 @@ int ArgumentParser::argumentsParsing(int arguments_count, char **arguments_vecto
 #endif
 				flow_control_.switch_scan_lines = true;
 				break;
-			case 'b':
-				flow_control_.switch_luminance_3_levels = false;
-				flow_control_.switch_luminance_7_levels = true;
-				break;
 			case 'c':
-				flow_control_.switch_luminance_mixing = true;
+				flow_control_.switch_color_mixing = true;
+				break;
+			case 'C':
+				flow_control_.switch_continuous_image_check = true;
 				break;
 			case 'd':
 				flow_control_.switch_display = 1;
@@ -103,6 +102,9 @@ int ArgumentParser::argumentsParsing(int arguments_count, char **arguments_vecto
 					fprintf(stderr, "Option -%c requires an alphanumerical argument.\n", argument);
 					exit(EXIT_FAILURE);
 				}
+			case 'm':
+				flow_control_.switch_vic_ii_late_model = false;
+				break;
 			case 'o':
 				if (isprint(argument)) {
 					flow_control_.name_output = std::string(optarg);
@@ -111,6 +113,15 @@ int ArgumentParser::argumentsParsing(int arguments_count, char **arguments_vecto
 					fprintf(stderr, "Option -%c requires an alphanumerical argument.\n", argument);
 					exit(EXIT_FAILURE);
 				}
+			case 'r':
+				flow_control_.switch_compare_rgb = true;
+				break;
+			case 'R':
+				flow_control_.switch_compare_rgb = false;
+				break;
+			case 'v':
+				flow_control_.verbose_flag = true;
+				break;
 			case ':':
 			case '?':
 				if ((optopt == 'i') or (optopt == 'o')) {
@@ -133,7 +144,7 @@ int ArgumentParser::argumentsParsing(int arguments_count, char **arguments_vecto
 	}
 
 #if DEBUG > 0
-	printf("ArgumentParser: Flags: a = %d, b = %d, c = %d, input: %s, output: %s\n", flow_control_.switch_scan_lines, flow_control_.switch_luminance_7_levels, flow_control_.switch_luminance_mixing, flow_control_.name_input.c_str(), flow_control_.name_output.c_str());
+	printf("ArgumentParser: Flags: a = %d, m = %d, c = %d, input: %s, output: %s\n", flow_control_.switch_scan_lines, flow_control_.switch_vic_ii_late_model, flow_control_.switch_color_mixing, flow_control_.name_input.c_str(), flow_control_.name_output.c_str());
 #endif
 
 	for (index = optind; index < arguments_count; index++)

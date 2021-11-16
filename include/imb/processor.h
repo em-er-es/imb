@@ -18,6 +18,7 @@
 
 #include "opencv2/opencv.hpp"
 #include "opencv2/imgproc.hpp"
+#include "imb/filter_c64.h"
 
 using namespace cv;
 namespace imb {
@@ -36,21 +37,10 @@ class ProcessorBlock {
 	//! Filter function pointer
 	int (*filter_function)(cv::Mat *, cv::Mat *);
 
-	//! Filter function
-	int filter(cv::Mat *input, cv::Mat *output);
-
-	//! Filter name
-	std::string filter_name;
-
 	//! Processor block name
 	std::string processor_block_name;
 
-	//! Input image pointer
-	cv::Mat *processed_image;
-
 }; // class ProcessorBlock
-
-int filter_c64(cv::Mat *input, cv::Mat *output);
 
 } // namespace imb
 

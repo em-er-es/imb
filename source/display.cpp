@@ -10,7 +10,7 @@
  */
 
 /*!
- * @todo 
+ * @todo Fix the format detection and processing [F0005]
  */
 
 #include <imb/display.h>
@@ -31,6 +31,7 @@ Display::~Display(void) {
 }
 
 //! Display function
+//! @todo Fix the format detection and processing [F0005]
 int Display::display_comparison(cv::Mat *image_a, cv::Mat *image_b) {
 	display_window_name.append(" - Comparison");
 #if DEBUG > 0
@@ -43,7 +44,7 @@ int Display::display_comparison(cv::Mat *image_a, cv::Mat *image_b) {
 #if DEBUG > 0
 	printf("Display: Input image sizes: %d, %d; %d, %d\n", size_a.width, size_a.height, size_b.width, size_b.height);
 #endif
-	cv::Mat image_comparison(size_a.height, size_a.width + size_b.width, CV_8UC4);
+	cv::Mat image_comparison(size_a.height, size_a.width + size_b.width, CV_8UC3); //! @todo Fix the format detection and processing [F0005]
 #define IMB_DISPLAY_ROI 0
 #if IMB_DISPLAY_ROI > 0
 	// Move right boundary left
@@ -68,7 +69,7 @@ int Display::display_comparison(cv::Mat *image_a, cv::Mat *image_b) {
 #endif
 #if IMB_DISPLAY_ROI == 0
 	image_a->copyTo(image_comparison(Rect(0, 0, size_a.width, size_a.height)));
-	image_a->copyTo(image_comparison(Rect(size_a.width, 0, size_b.width, size_b.height)));
+	image_b->copyTo(image_comparison(Rect(size_a.width, 0, size_b.width, size_b.height)));
 #endif
 
 	// Create window with flags

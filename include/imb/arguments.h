@@ -49,12 +49,13 @@ class ArgumentParser {
 	 * @details Holds various switches, counters, dictionary/mapping items to control the flow of the program set by argument parsing
 	 */
 	struct FlowControl {
+		bool switch_compare_rgb = true;
+		bool switch_continuous_image_check = false;
+		bool switch_color_mixing = false;
+		bool switch_scan_lines = false;
+		bool switch_vic_ii_late_model = true;
 		bool verbose_flag = false;
 		int switch_display = 0;
-		bool switch_scan_lines = false;
-		bool switch_luminance_mixing = false;
-		bool switch_luminance_3_levels = true;
-		bool switch_luminance_7_levels = false;
 		std::string name_input;
 		std::string name_output;
 	} flow_control_;
