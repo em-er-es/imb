@@ -129,14 +129,14 @@ int ArgumentParser::argumentsParsing(int arguments_count, char **arguments_vecto
 				} else if (optopt == '-') {
 					fprintf(stderr, "Please use single hyphen options only.\n");
 				} else if (isprint(optopt)) {
-					fprintf(stderr, "Unknown option `-%c'.\n", optopt);
+					fprintf(stderr, "Unknown option '-%c'.\n", optopt);
 				} else {
-					fprintf(stderr, "Unknown option character `\\x%x'.\n", optopt);
+					fprintf(stderr, "Unknown option character '\\x%x'.\n", optopt);
 				}
 #if DEBUG > 0
 				fprintf(stderr, "%s: invalid option -- %c : %c : %s\n", arguments_vector[0], argument, optopt, optarg);
 #endif
-				fprintf(stderr, "Use `%s -h or --help' for more information.\n", arguments_vector[0]);
+				fprintf(stderr, "Use '%s -h or --help' for more information.\n", arguments_vector[0]);
 				exit(EXIT_FAILURE);
 			default:
 				abort();
