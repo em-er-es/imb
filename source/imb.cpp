@@ -27,7 +27,7 @@ int main(int arguments_count, char **arguments_vector) {
 	printf("Main: Argument parsing = %d\n", argument_parsing);
 #endif
 #if DEBUG > 0
-	printf("Main: Set arguments: %d, %d, %s, %s\n", argument_parser.flow_control_.switch_scan_lines, argument_parser.flow_control_.switch_luminance_3_levels, argument_parser.flow_control_.name_input.c_str(), argument_parser.flow_control_.name_output.c_str());
+	printf("Main: Set arguments: %d, %d, %s, %s\n", argument_parser.flow_control_.switch_scan_lines, argument_parser.flow_control_.switch_vic_ii_late_model, argument_parser.flow_control_.name_input.c_str(), argument_parser.flow_control_.name_output.c_str());
 #endif
 
 	// OpenCV version check
@@ -55,6 +55,9 @@ int main(int arguments_count, char **arguments_vector) {
 	processor_block.processor_block_name = "Commodore 64 processor block";
 	printf("Main: Processor block filter name = %s\n", processor_block.processor_block_name.c_str());
 	processor_block.filter_function = imb::Filter::filterPaletteC64;
+	//extern bool switch_vic_ii_late_model;
+	imb::Filter::switch_vic_ii_late_model = argument_parser.flow_control_.switch_vic_ii_late_model;
+	printf("Main: VIC model = %d\n", imb::Filter::switch_vic_ii_late_model);
 	processor_block.filter_function(&file_operations.input_matrix, &file_operations.output_matrix);
 
 	// Display output image
