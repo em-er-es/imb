@@ -31,12 +31,14 @@ namespace Filter {
 		cv::Mat processed_image;
 		// Switch between YUV and RGB comparison
 		if (switch_compare_rgb) {
+			printf("Filter: Using RGB comparison\n");
 			// Convert into YUV color space
 			cv::cvtColor(*input, processed_image, COLOR_BGR2YUV);
 #if DEBUG > 0
 			printf("Filter: Input: %s, converted to YUV: %s\n", type2str(input->type()).c_str(), type2str(processed_image.type()).c_str());
 #endif
 		} else {
+			printf("Filter: Using YUV comparison\n");
 			// Copy processed image
 			input->copyTo(processed_image);
 #if DEBUG > 0
