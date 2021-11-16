@@ -61,45 +61,105 @@ int filterPaletteC64(cv::Mat *input, cv::Mat *output) { //@todo Rename to filter
 	// No angle colors: black: 0, white: 32; dark grey: 10; grey: 15; light grey: 20;
 	// peak = 34,0081334493; u = peak * cos(angle); v = peak * sin(angle);
 
-// LUT 8 bit YUV
-uchar lut8yuv[16][3] = {
-	{0, 0, 0}, // black
-	{255, 0, 0}, // white
-	{80, 0, 0}, // red
-	{159, 0, 11}, // cyan
-	{96, 18, 29}, // purple
-	{128, 0, 32}, // green
-	{64, 34, 0}, // blue
-	{191, 21, 0}, // yellow
-	{96, 34, 3}, // orange
-	{64, 0, 14}, // brown
-	{128, 0, 0}, // light red
-	{80, 0, 0}, // dark grey
-	{120, 0, 0}, // grey
-	{191, 0, 32}, // light green
-	{120, 34, 0}, // light blue
-	{159, 0, 0}, // light grey
-};
+	// LUT declarations
+	uchar lut8yuv[16][3];
+	uchar lut8rgb[16][3];
 
-// LUT 8 bit RGB
-uchar lut8rgb[16][3] = {
-	{0, 0, 0}, // black
-	{255, 255, 255}, // white
-	{58, 102, 22}, // red
-	{172, 166, 93}, // cyan
-	{129, 72, 132}, // purple
-	{164, 114, 102}, // green
-	{64, 50, 134}, // blue
-	{191, 183, 233}, // yellow
-	{99, 80, 165}, // orange
-	{80, 68, 0}, // brown
-	{105, 150, 70}, // light red
-	{80, 80, 80}, // dark grey
-	{120, 120, 120}, // grey
-	{228, 178, 166}, // light green
-	{120, 106, 189}, // light blue
-	{159, 159, 159}, // light grey
-};
+	// VIC luma output levels
+	if (switch_vic_ii_late_model) {
+		printf("Filter: Using VIC model II: 8 luminance levels\n");
+
+		// LUT 8 bit YUV
+		uchar lut8yuv[16][3] = {
+			{0, 0, 0}, // black
+			{255, 0, 0}, // white
+			{80, 0, 0}, // red
+			{159, 0, 11}, // cyan
+			{96, 18, 29}, // purple
+			{128, 0, 32}, // green
+			{64, 34, 0}, // blue
+			{191, 21, 0}, // yellow
+			{96, 34, 3}, // orange
+			{64, 0, 14}, // brown
+			{128, 0, 0}, // light red
+			{80, 0, 0}, // dark grey
+			{120, 0, 0}, // grey
+			{191, 0, 32}, // light green
+			{120, 34, 0}, // light blue
+			{159, 0, 0}, // light grey
+		};
+
+		// LUT 8 bit RGB
+		uchar lut8rgb[16][3] = {
+			{0, 0, 0}, // black
+			{255, 255, 255}, // white
+			{58, 102, 22}, // red
+			{172, 166, 93}, // cyan
+			{129, 72, 132}, // purple
+			{164, 114, 102}, // green
+			{64, 50, 134}, // blue
+			{191, 183, 233}, // yellow
+			{99, 80, 165}, // orange
+			{80, 68, 0}, // brown
+			{105, 150, 70}, // light red
+			{80, 80, 80}, // dark grey
+			{120, 120, 120}, // grey
+			{228, 178, 166}, // light green
+			{120, 106, 189}, // light blue
+			{159, 159, 159}, // light grey
+		};
+
+	} else if (not switch_vic_ii_late_model) {
+			//std::vector<int> vic_luma {0, 8, 16, 24, 32};
+			//std::vector<int> vic_luma{0, 1, 4, 6, 8};
+			//std::vector<int> vic_ii_luma{0, 255, 64, 191, 128, 128, 64, 191, 128, 64, 128, 64, 128, 191, 128, 191};
+			//std::vector<int> vic_ii_rgb{0, 255, , 191, 128, 128, 64, 191, 128, 64, 128, 64, 128, 191, 128, 191};
+			printf("Filter: Using VIC model I: 4 luminance levels\n");
+
+		// LUT 8 bit YUV
+		uchar lut8yuv[16][3] = {
+			{0, 0, 0}, // black
+			{255, 0, 0}, // white
+			{64, 0, 0}, // red
+			{191, 0, 11}, // cyan
+			{128, 18, 29}, // purple
+			{128, 0, 32}, // green
+			{64, 34, 0}, // blue
+			{191, 21, 0}, // yellow
+			{128, 34, 3}, // orange
+			{64, 0, 14}, // brown
+			{128, 0, 0}, // light red
+			{64, 0, 0}, // dark grey
+			{128, 0, 0}, // grey
+			{191, 0, 32}, // light green
+			{128, 34, 0}, // light blue
+			{191, 0, 0}, // light grey
+		};
+
+		// LUT 8 bit RGB
+		uchar lut8rgb[16][3] = {
+			{0, 0, 0}, // black
+			{255, 255, 255}, // white
+			{42, 86, 6}, // red
+			{204, 198, 125}, // cyan
+			{161, 103, 164}, // purple
+			{164, 114, 102}, // green
+			{64, 50, 134}, // blue
+			{191, 183, 233}, // yellow
+			{131, 112, 197}, // orange
+			{80, 68, 0}, // brown
+			{105, 150, 70}, // light red
+			{64, 64, 64}, // dark grey
+			{128, 128, 128}, // grey
+			{228, 178, 166}, // light green
+			{128, 114, 197}, // light blue
+			{191, 191, 191}, // light grey
+		};
+
+	} else {
+		printf("Filter: VIC II model not set\n");
+		exit(4);
+	}
 
 	// Prepare iteration
 	int nChannels = processed_image.channels();
