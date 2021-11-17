@@ -67,12 +67,12 @@ message("OpenCV configuration: ")
 message("-*- version: " ${OpenCV_VERSION})
 if(VERBOSE)
 	message("-*- compute capabilities: " ${OpenCV_COMPUTE_CAPABILITIES})
+	message("-*- location: " ${OpenCV_INSTALL_PATH})
+	message("-*- include directories: " ${OpenCV_INCLUDE_DIRS})
+	message("-*- cmake configuration directory: " ${OpenCV_DIR})
+	message("-*- libraries directory: " ${OpenCV_LIB_DIR})
+	message("-*- libraries: " ${OpenCV_LIBS})
 endif()
-message("-*- location: " ${OpenCV_INSTALL_PATH})
-message("-*- include directories: " ${OpenCV_INCLUDE_DIRS})
-message("-*- cmake configuration directory: " ${OpenCV_DIR})
-message("-*- libraries directory: " ${OpenCV_LIB_DIR})
-message("-*- libraries: " ${OpenCV_LIBS})
 
 # IMB
 include_directories(
