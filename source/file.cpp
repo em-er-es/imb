@@ -31,7 +31,7 @@ int FileOperations::load(std::string filename) {
 #if DEBUG > 0
 	printf("FileOperations: Load: Filename %s\n", filename.c_str());
 #endif
-	input_matrix = cv::imread(filename, CV_LOAD_IMAGE_UNCHANGED);
+	input_matrix = cv::imread(filename, IMREAD_UNCHANGED);
 
 	if (input_matrix.empty()) {
 		fprintf(stderr, "Input file %s could not be loaded\n", filename.c_str());
