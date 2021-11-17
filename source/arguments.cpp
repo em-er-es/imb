@@ -92,7 +92,7 @@ int ArgumentParser::argumentsParsing(int arguments_count, char **arguments_vecto
 				flow_control_.switch_display = 0;
 				break;
 			case 'h':
-				printf("Usage: %s -i input -o output\n\t-a\tSwitch a\n\t-b\tSwitch b\n", arguments_vector[0]);
+				printf("Usage: %s [-acCdDhmrRv] -i input -o output\n\t-a\tScan lines\n\t-c\tColor mixing\n\t-C\tContinuous image check\n\t-d/D\tEnable/Disable input and output comparison display\n\t-h\tThis help\n\t-i\tInput image (default: input.png)\n\t-m\tVIC II model selector (default: latest)\n\t-o\tOutput image (default: output.png)\n\t-r/R\tEnable/Disable RGB comparison (default: enabled)\n\t-v\tVerbose\n", arguments_vector[0]);
 				exit(EXIT_SUCCESS);
 			case 'i':
 				if (isprint(argument)) {
