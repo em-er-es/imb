@@ -83,3 +83,10 @@ include_directories(
 link_directories(${CMAKE_BINARY_DIR}/bin ${OpenCV_LIB_DIR})
 add_executable(${OUTPUT} ${SOURCE_CODE})
 target_link_libraries(${OUTPUT} ${OpenCV_LIBS})
+
+# Installation
+install(TARGETS ${OUTPUT}
+	RUNTIME DESTINATION bin
+	LIBRARY DESTINATION lib
+	ARCHIVE DESTINATION lib/static
+)
