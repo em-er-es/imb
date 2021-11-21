@@ -21,13 +21,13 @@ This project aims at providing a minimalist, yet expandible, image processing fr
 # apt install build-essential git cmake libopencv-dev
 ```
 
-Get the source code
+Get the source code:
 
 ```
 $ git clone https://github.com/em-er-es/imb
 ```
 
-For building packages use the overlay repository
+For building packages use the overlay repository and follow the instructions:
 
 ```
 $ git clone https://github.com/em-er-es/devops
