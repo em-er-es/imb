@@ -21,6 +21,8 @@ This project aims at providing a minimalist, yet expandible, image processing fr
 # apt install build-essential git cmake libopencv-dev
 ```
 
+## Download
+
 Get the source code:
 
 ```
@@ -75,24 +77,6 @@ LLVM can be used as well, as per `build.sh`, however certain builds result in se
 ## Packaging
 
 Check the devops repository: [https://github.com/em-er-es/devops](https://github.com/em-er-es/devops)
-
-Requirements
-
-```
-# apt install docker
-```
-
-Build image
-
-```
-# docker build -t imb-git .
-```
-
-Run packaging routine
-
-```
-# docker run -it imb-git:latest
-```
 
 ## Running
 
