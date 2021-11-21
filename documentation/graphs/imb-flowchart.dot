@@ -1,0 +1,35 @@
+digraph IMBFlowchart {
+	compound=true;
+	graph [color="black"];
+
+	start [label="   Start   ", shape="ellipse"];
+	end [label="    End    ", shape="ellipse"];
+	command_line_arguments [label="Command line arguments", shape="box", style="dashed", color="grey"];
+	file_operations_input [label="File operations", shape="box", style="dashed", color="green"];
+	file_operations_output [label="File operations", shape="box", style="dashed", color="red"];
+	display [label="Display comparison", shape="box", style="dashed", color="blue"];
+
+	start -> command_line_arguments;
+	command_line_arguments -> file_operations_input;
+	file_operations_input -> input;
+
+
+	subgraph cluster_imb {
+		graph [label="Image processing modular blocks", style="dashed", color="black"];
+		input [label="Input", shape="diamond"];
+		output [label="Output", shape="diamond"];
+		
+		subgraph cluster_processor {
+			graph [label="Processor", shape="box"];
+			filter_c64 [label="Filter C64", shape="box"];
+		}
+		
+
+	}
+
+	input->filter_c64;
+	filter_c64->output;
+	output -> display;
+	output -> file_operations_output;
+	file_operations_output -> end;
+}
