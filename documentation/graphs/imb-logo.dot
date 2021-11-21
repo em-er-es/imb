@@ -1,0 +1,8 @@
+digraph IMBLogo {
+	graph [color="black"];
+
+	imb[label="IMB", shape="box"];
+	imb -> imb [style="dashed", color="red"];
+	imb -> imb [style="", color="green", headport=n, tailport=s];
+	imb -> imb [color="blue"];
+}

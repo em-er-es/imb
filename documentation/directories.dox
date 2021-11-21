@@ -1,0 +1,34 @@
+/*!
+ * @file
+ * @author Ernest Skrzypczyk <emeres.code@onet.eu>
+ * @version 0.2.1
+ * @date 09.02.19
+ * @copyright Ernest Skrzypczyk
+ * @brief Documentation -- Directories description
+ * @details 
+ * 
+ */
+
+/*!
+ *  @dir cmake
+ *  @brief CMake modules
+ *  @details Holds CMake modules used for building
+ *  @dir documentation
+ *  @brief Documentation
+ *  @details Generated documentation in HTML and LaTeX/PDF formats
+ *  @dir include
+ *  @brief Source code include files
+ *  @details Source code include files
+ *  @dir input
+ *  @brief Input test images folder
+ *  @details Put input files here
+ *  @dir output
+ *  @brief Output images folder
+ *  @details Generated output test files save location
+ *  @dir scripts
+ *  @brief Scripts
+ *  @details Various scripts for maintenance and development
+ *  @dir source
+ *  @brief Source code
+ *  @details Main source code directory
+ */
