@@ -80,13 +80,13 @@ Check the devops repository: [https://github.com/em-er-es/devops](https://github
 
 ## Running
 
-### Local source builds
+### Local source build
 
 ```
 $ build/bin/imb -i input/input.png -o output/output.png -d
 ```
 
-### Packaged builds
+### Packaged build
 
 ```
 $ imb -i input/input.png -o output/output.png -d
