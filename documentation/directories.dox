@@ -15,7 +15,7 @@
  *  @details Holds CMake modules used for building
  *  @dir documentation
  *  @brief Documentation
- *  @details Generated documentation in HTML and LaTeX/PDF formats
+ *  @details Generated documentation in HTML format
  *  @dir include
  *  @brief Source code include files
  *  @details Source code include files

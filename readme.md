@@ -1,8 +1,14 @@
 # Image processing modular blocks (IMB)
 
-@tableofcontents
-
 This project aims at providing a minimalist, yet expandible, image processing framework. With modular blocks of image processing steps the goal is to reach pipeline flexibility and expose used algorithms for further adjustments and performance optimization. This is of particular interest for embedded applications and for use with other frameworks that heavily rely on computer vision, such as ROS.
+
+### Example
+
+| Input | Output |
+|:-----:|:------:|
+| <img src="input/input-lenna.png" width="384"> | <img src="documentation/graphics/readme-output-lenna.jpg" width="384"> |
+| <img src="input/input-robot-a.png" width="384"> | <img src="documentation/graphics/readme-output-robot-a.jpg" width="384"> |
+| <img src="input/input-robot-b.png" width="384"> | <img src="documentation/graphics/readme-output-robot-b.jpg" width="384"> |
 
 ## Flowchart
 
@@ -21,13 +27,15 @@ This project aims at providing a minimalist, yet expandible, image processing fr
 # apt install build-essential git cmake libopencv-dev
 ```
 
-Get the source code
+## Download
+
+Get the source code:
 
 ```
 $ git clone https://github.com/em-er-es/imb
 ```
 
-For building packages use the overlay repository
+For building packages use the overlay repository and follow the instructions:
 
 ```
 $ git clone https://github.com/em-er-es/devops
@@ -76,33 +84,15 @@ LLVM can be used as well, as per `build.sh`, however certain builds result in se
 
 Check the devops repository: [https://github.com/em-er-es/devops](https://github.com/em-er-es/devops)
 
-Requirements
-
-```
-# apt install docker
-```
-
-Build image
-
-```
-# docker build -t imb-git .
-```
-
-Run packaging routine
-
-```
-# docker run -it imb-git:latest
-```
-
 ## Running
 
-### Local source builds
+### Local source build
 
 ```
 $ build/bin/imb -i input/input.png -o output/output.png -d
 ```
 
-### Packaged builds
+### Packaged build
 
 ```
 $ imb -i input/input.png -o output/output.png -d

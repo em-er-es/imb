@@ -1,0 +1,16 @@
+/*!
+ * @file
+ * @author Ernest Skrzypczyk <emeres.code@onet.eu>
+ * @version 0.2.1
+ * @date 09.02.19
+ * @copyright Ernest Skrzypczyk
+ * @brief Documentation -- Project description
+ * @details 
+ * 
+ */
+
+/*!
+ *  @file update.sh
+ *  @brief General update script
+ *  @details Iterates over other scripts and executes them
+ */
