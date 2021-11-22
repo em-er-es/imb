@@ -1,7 +1,5 @@
 # Image processing modular blocks (IMB)
 
-@tableofcontents
-
 This project aims at providing a minimalist, yet expandible, image processing framework. With modular blocks of image processing steps the goal is to reach pipeline flexibility and expose used algorithms for further adjustments and performance optimization. This is of particular interest for embedded applications and for use with other frameworks that heavily rely on computer vision, such as ROS.
 
 ### Example
