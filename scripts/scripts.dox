@@ -1,0 +1,49 @@
+/*!
+ * @file
+ * @author Ernest Skrzypczyk <emeres.code@onet.eu>
+ * @version 0.2.1
+ * @date 09.02.19
+ * @copyright Ernest Skrzypczyk
+ * @brief Documentation -- Scripts description
+ * @details 
+ * 
+ */
+
+/*!
+ *  @file base.sh
+ *  @brief Returns base of project directory
+ *  @details Determine the base of project directory for use with other scripts
+ *  @file build.sh
+ *  @brief Builds project
+ *  @details Provides several profiles of building
+ *  @file c64-vic-ii-a-palette.sh
+ *  @brief Generates C64 VIC II palette
+ *  @details 
+ *  @file cleanup.sh
+ *  @brief Cleans up output
+ *  @details Removes generated images in output directory
+ *  @file coverage.sh
+ *  @brief Generates coverage information
+ *  @details 
+ *  @file documentation.sh
+ *  @brief Updates documentation
+ *  @details 
+ *  @file monitor-todos.sh
+ *  @brief Monitor todo files for changes
+ *  @details Monitors for changes and updates todo files
+ *  @file profiling.sh
+ *  @brief Generates profiling information
+ *  @details 
+ *  @file tests.sh
+ *  @brief Runs external tests
+ *  @details 
+ *  @file tickets.sh
+ *  @brief Handles tickets
+ *  @details 
+ *  @file update-source-code-format.sh
+ *  @brief Formats source code
+ *  @details 
+ *  @file update-todos.sh
+ *  @brief Updates todo files
+ *  @details 
+ */

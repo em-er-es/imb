@@ -1,0 +1,19 @@
+/*!
+ * @file
+ * @author Ernest Skrzypczyk <emeres.code@onet.eu>
+ * @version 0.2.1
+ * @date 09.02.19
+ * @copyright Ernest Skrzypczyk
+ * @brief Documentation -- Documentation description
+ * @details 
+ * 
+ */
+
+/*!
+ *  @file doxygen.sh
+ *  @brief Doxygen documentation processing script
+ *  @details 
+ *  @file update.sh
+ *  @brief Symlink to Doxygen documentation processing script
+ *  @details Update call
+ */
