@@ -1,4 +1,4 @@
 # {#todofiles}
 ### Todo File &mdash; imb ###
-- [ ] Create initial Doxygen documentation
+- [x] Create initial Doxygen documentation
 - [ ]
