@@ -38,9 +38,9 @@ int main(int arguments_count, char **arguments_vector) {
 #endif
 
 	// Set input and output filenames
-#if DEBUG > 0
 	file_operations.input = argument_parser.flow_control_.name_input;
 	file_operations.output = argument_parser.flow_control_.name_output;
+#if DEBUG > 0
 	printf("Main: Argument input file = %s\n", argument_parser.flow_control_.name_input.c_str());
 	printf("Main: File operations input file = %s\n", file_operations.input.c_str());
 #endif
