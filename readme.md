@@ -2,13 +2,9 @@
 
 This project aims at providing a minimalist, yet expandible, image processing framework. With modular blocks of image processing steps the goal is to reach pipeline flexibility and expose used algorithms for further adjustments and performance optimization. This is of particular interest for embedded applications and for use with other frameworks that heavily rely on computer vision, such as ROS.
 
-### Example
+## Examples
 
-| Input | Output |
-|:-----:|:------:|
-| <img src="input/input-lenna.png" width="384"> | <img src="documentation/graphics/readme-output-lenna.jpg" width="384"> |
-| <img src="input/input-robot-a.png" width="384"> | <img src="documentation/graphics/readme-output-robot-a.jpg" width="384"> |
-| <img src="input/input-robot-b.png" width="384"> | <img src="documentation/graphics/readme-output-robot-b.jpg" width="384"> |
+@subpage example-c64-filter
 
 ## Flowchart
 
