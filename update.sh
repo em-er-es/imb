@@ -8,6 +8,6 @@ for SCRIPT in "${SCRIPTS[@]}"; do
 	echo "Checking ${SCRIPT}"
 	if [[ -x "${SCRIPT}" ]]; then
 		echo "Running ${SCRIPT}"
-		bash "${SCRIPT}"
+		bash "${SCRIPT}" || { LAST=$?; echo "Exit code ${LAST} returned"; exit ${LAST}; }
 	fi
 done
